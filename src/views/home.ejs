@@ -37,16 +37,27 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
+          <% if (user) { %>
+          <img
+            src="<%= user.thumbnail %>"
+            style="width: 200px; height: 200px"
+          />
+          <p><%= user.username%></p>
+          <p><%= user.email%></p>
+          <% } %>
           <li><a href="/" class="active">Home</a></li>
 
           <li><a href="/blog">Blogs</a></li>
 
           <li><a href="/about">About</a></li>
-
+          <% if (user) { %>
           <li><a href="/profile">Profile</a></li>
-
           <li><a href="/fav">Favourite Blogs</a></li>
-          <li><a href="/login">Login</a></li>
+          <% } %> <% if (user) { %>
+          <li><a href="/auth/logout">Log out</a></li>
+          <% } else { %>
+          <li><a href="/auth/google">Login</a></li>
+          <% } %>
         </ul>
       </nav>
 
@@ -410,7 +421,7 @@
         <div class="inner">
           <section>
             <h2>Contact Us</h2>
-            <form method="post" action="#">
+            <form method="post" action="/contact_us">
               <div class="fields">
                 <div class="field half">
                   <input type="text" name="name" id="name" placeholder="Name" />
@@ -422,17 +433,18 @@
                     name="email"
                     id="email"
                     placeholder="Email"
+                    required
                   />
                 </div>
 
-                <div class="field">
+                <!--<div class="field">
                   <input
                     type="text"
                     name="subject"
                     id="subject"
                     placeholder="Subject"
                   />
-                </div>
+                </div>-->
 
                 <div class="field">
                   <textarea
@@ -507,6 +519,9 @@
       </footer>
     </div>
 
+    <a href="#" class="to-top" style="text-decoration: none; color: white">
+      <i class="fa fa-angle-up"></i>
+    </a>
     <!-- Scripts -->
     <script src="/js/jquery.min.js"></script>
     <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -1,3 +1,40 @@
+html {
+  scroll-behavior: smooth;
+}
+.to-top {
+  background: #fb8da0;
+  position: fixed;
+  bottom: 16px;
+  right: 32px;
+  width: 50px;
+  height: 50px;
+  border-radius: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+.to-top:hover {
+  background: #fb4570;
+  color: #fff;
+}
+.to-top.active {
+  bottom: 32px;
+  color: #fff;
+  pointer-events: auto;
+  opacity: 1;
+}
+.to-top.active:hover {
+  color: #fff;
+}
+.to-top.active i:hover {
+  color: white;
+}
 @media (max-width: 768px) {
   .carousel-inner .carousel-item > div {
     display: none;
