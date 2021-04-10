@@ -6,6 +6,7 @@ const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const passportSetup = require("./config/passport-setup");
+var socket = require("socket.io");
 
 // assests
 app.use(express.static("public"));
@@ -47,6 +48,19 @@ app.set("view engine", "ejs");
 // routes
 require(path.join(__dirname, "/routes/web"))(app);
 
-app.listen(3000, () => {
+var server = app.listen(3000, () => {
   console.log("app now listening for requests on port 3000");
+});
+
+//socket setup
+var io = socket(server);
+io.on("connection", function (socket) {
+  console.log("made con");
+
+  socket.on("chat", function (data) {
+    io.sockets.emit("chat", data);
+  });
+  socket.on("typing", function (data) {
+    socket.broadcast.emit("typing", data);
+  });
 });
