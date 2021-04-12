@@ -1,8 +1,10 @@
+const Article = require('./../models/article')
 const blogController = () => {
   // factory functions
   return {
     blog: async (req, res) => {
-      return res.render("blog", { user: req.user });
+      const blogs = await Article.find().sort({ createdAt: 'desc' })
+      return res.render("blog", { user: req.user, blogs:blogs });
     },
   };
 };

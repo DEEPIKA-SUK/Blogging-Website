@@ -22,6 +22,9 @@
           <a href="/" class="logo">
             <span class="fa fa-pencil"></span>
             <span class="title">Blogging</span>
+            <div class = "col-4" style="float: right">
+                <a href="/" class="btn btn-lg" style="background-color: pink">All Blogs</a>
+            </div>
           </a>
 
           <!-- Nav -->
@@ -66,8 +69,10 @@
       <!-- Main -->
       <div id="main">
         <div class="inner">
-          <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-
+          <h1><%= article.title %></h1>
+          <div class="text-muted mb-2">
+            <%= article.createdAt.toLocaleDateString() %>
+          </div>
           <div class="image main">
             <img
               src="/img/blog-fullscreen-1-1920x700.jpg"
@@ -77,35 +82,16 @@
           </div>
 
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Praesentium maxime enim rem laborum provident culpa, nemo illo
-            voluptatem vero similique, sapiente dolorum tempore, eos facere
-            laboriosam excepturi nisi facilis nulla!
-          </p>
+            <%- article.sanitizedHtml %>
 
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam,
-            nostrum ad rerum odio expedita unde facilis, harum praesentium
-            quibusdam veniam officiis totam, iusto esse cupiditate fugiat illo a
-            dicta quod. Voluptatibus nam sapiente repellat accusamus ex quam
-            eligendi inventore nemo.
           </p>
+          <a href="/edit/<%= article.id  %>" class="btn btn-lg" style="background-color: pink">Edit Blog</a>
 
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-            ducimus numquam, ad reprehenderit quisquam nobis suscipit reiciendis
-            consequuntur officia earum, assumenda illo maiores! Voluptates harum
-            blanditiis non amet ex dignissimos expedita quis provident dolore
-            voluptatum laudantium quam in nemo voluptatibus, fugit facilis
-            voluptate, commodi quisquam corporis sed possimus. Sit, voluptate?
-          </p>
 
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
-            mollitia, obcaecati aperiam temporibus dicta voluptates, incidunt
-            quibusdam eos a debitis molestias dolores quas. Culpa itaque
-            dignissimos, nulla sequi velit repellat?
-          </p>
+          <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+
         </div>
       </div>
 
