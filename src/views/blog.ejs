@@ -66,8 +66,16 @@
       <!-- Main -->
       <div id="main">
         <div class="inner">
-          <h1>Blogs of particular category</h1>
+          <div class="row">
+            <div class = "col-8">
+                <h1>Blogs of particular category</h1>
+            </div>
+            <div class = "col-4">
+                <a href="/new" class="btn btn-lg" style="background-color: pink">New Article</a>
+            </div>
 
+
+          </div>
           <div class="image main">
             <img
               src="/img/banner-image-3-1920x500.jpg"
@@ -80,107 +88,27 @@
             <div class="row">
               <div class="col-12">
                 <div class="row">
-                  <div class="col-sm-4 text-center">
-                    <img
-                      src="/img/blog-1-720x480.jpg"
-                      class="img-fluid"
-                      alt=""
-                    />
+                  <% blogs.forEach(blog => { %>
+                    <div class="col-sm-4 text-center">
+                      <img
+                        src="/img/blog-1-720x480.jpg"
+                        class="img-fluid"
+                        alt=""
+                      />
 
-                    <h2 class="m-n">
-                      <a href="/blog_post"
-                        >Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit.</a
-                      >
-                    </h2>
+                      <h2 class="m-n">
+                        <a href="articles/<%= blog.slug %>"
+                          ><%= blog.title %></a
+                        >
 
-                    <p>John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
-                  </div>
+                      </h2>
 
-                  <div class="col-sm-4 text-center">
-                    <img
-                      src="/img/blog-2-720x480.jpg"
-                      class="img-fluid"
-                      alt=""
-                    />
+                      <p><%= user.username%> &nbsp;|&nbsp; <%= blog.createdAt.toLocaleDateString() %> <%=blog.createdAt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %></p>
+                    </div>
+                  <% }) %>
 
-                    <h2 class="m-n">
-                      <a href="/blog_post"
-                        >Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit.</a
-                      >
-                    </h2>
 
-                    <p>John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
-                  </div>
 
-                  <div class="col-sm-4 text-center">
-                    <img
-                      src="/img/blog-3-720x480.jpg"
-                      class="img-fluid"
-                      alt=""
-                    />
-
-                    <h2 class="m-n">
-                      <a href="/blog_post"
-                        >Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit.</a
-                      >
-                    </h2>
-
-                    <p>John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
-                  </div>
-
-                  <div class="col-sm-4 text-center">
-                    <img
-                      src="/img/blog-4-720x480.jpg"
-                      class="img-fluid"
-                      alt=""
-                    />
-
-                    <h2 class="m-n">
-                      <a href="/blog_post"
-                        >Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit.</a
-                      >
-                    </h2>
-
-                    <p>John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
-                  </div>
-
-                  <div class="col-sm-4 text-center">
-                    <img
-                      src="/img/blog-5-720x480.jpg"
-                      class="img-fluid"
-                      alt=""
-                    />
-
-                    <h2 class="m-n">
-                      <a href="/blog_post"
-                        >Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit.</a
-                      >
-                    </h2>
-
-                    <p>John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
-                  </div>
-
-                  <div class="col-sm-4 text-center">
-                    <img
-                      src="/img/blog-6-720x480.jpg"
-                      class="img-fluid"
-                      alt=""
-                    />
-
-                    <h2 class="m-n">
-                      <a href="/blog_post"
-                        >Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit.</a
-                      >
-                    </h2>
-
-                    <p>John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
-                  </div>
                 </div>
               </div>
             </div>
