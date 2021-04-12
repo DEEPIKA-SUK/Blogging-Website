@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 .to-top {
   background: #fb8da0;
   position: fixed;
@@ -35,6 +36,25 @@ html {
 .to-top.active i:hover {
   color: white;
 }
+.chatbot {
+  background: #fb8da0;
+  position: fixed;
+  bottom: 16px;
+  left: 32px;
+  width: 50px;
+  height: 50px;
+  border-radius: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s;
+}
+
 @media (max-width: 768px) {
   .carousel-inner .carousel-item > div {
     display: none;
@@ -66,4 +86,48 @@ html {
 .carousel-inner .carousel-item-right,
 .carousel-inner .carousel-item-left {
   transform: translateX(0);
+}
+
+/*chat group*/
+
+#chat-window {
+  height: 400px;
+  overflow: auto;
+  background: #f9f9f9;
+}
+
+#output p {
+  padding: 14px 0px;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: #555;
+}
+
+#feedback p {
+  color: #aaa;
+  padding: 14px 0px;
+  margin: 0 20px;
+}
+
+#output strong {
+  color: #575ed8;
+}
+
+label {
+  box-sizing: border-box;
+  display: block;
+  padding: 10px 20px;
+}
+
+input {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: #eee;
+  border: 0;
+  display: block;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-family: Nunito;
+  font-size: 16px;
 }

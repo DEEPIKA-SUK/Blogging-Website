@@ -7,6 +7,7 @@ const passport = require("passport");
 const passportSetup = require("../config/passport-setup");
 const authController = require("../controllers/authController");
 const authCheck = require("../middlewares/authCheck");
+const botController = require("../controllers/botController");
 
 const initRoutes = (app) => {
   // routes
@@ -44,6 +45,9 @@ const initRoutes = (app) => {
 
   // contactus
   app.post("/contact_us", homeController().contact_us);
+
+  //chatbot
+  app.get("/chatbot", botController().bot);
 };
 
 module.exports = initRoutes;
