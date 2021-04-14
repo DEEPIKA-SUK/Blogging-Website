@@ -22,8 +22,10 @@
           <a href="/" class="logo">
             <span class="fa fa-pencil"></span>
             <span class="title">Blogging</span>
-            <div class = "col-4" style="float: right">
-                <a href="/" class="btn btn-lg" style="background-color: pink">All Blogs</a>
+            <div class="col-4" style="float: right">
+              <a href="/" class="btn btn-lg" style="background-color: pink"
+                >All Blogs</a
+              >
             </div>
           </a>
 
@@ -50,8 +52,6 @@
           <% } %>
           <li><a href="/" class="active">Home</a></li>
 
-          <li><a href="/blog">Blogs</a></li>
-
           <li><a href="/about">About</a></li>
 
           <% if (user) { %>
@@ -71,7 +71,7 @@
         <div class="inner">
           <h1><%= article.title %></h1>
           <div class="text-muted mb-2">
-            <%= article.createdAt.toLocaleDateString() %>
+            <%= article.author %> <%= article.createdAt.toLocaleDateString() %>
           </div>
           <div class="image main">
             <img
@@ -81,17 +81,23 @@
             />
           </div>
 
-          <p>
-            <%- article.sanitizedHtml %>
+          <p><%- article.sanitizedHtml %></p>
+          <% if (user) { %>
+          <a
+            href="/edit/<%= article.id  %>"
+            class="btn btn-lg"
+            style="background-color: pink"
+            >Edit Blog</a
+          >
 
-          </p>
-          <a href="/edit/<%= article.id  %>" class="btn btn-lg" style="background-color: pink">Edit Blog</a>
-
-
-          <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
-            <button type="submit" class="btn btn-danger">Delete</button>
+          <form
+            action="/articles/<%= article.id %>?_method=DELETE"
+            method="POST"
+            class="d-inline"
+          >
+            <button type="submit">Delete</button>
           </form>
-
+          <% } %>
         </div>
       </div>
 
