@@ -47,8 +47,6 @@
           <% } %>
           <li><a href="/" class="active">Home</a></li>
 
-          <li><a href="/blog">Blogs</a></li>
-
           <li><a href="/about">About</a></li>
 
           <% if (user) { %>
@@ -67,14 +65,20 @@
       <div id="main">
         <div class="inner">
           <div class="row">
-            <div class = "col-8">
-                <h1>Blogs of particular category</h1>
+            <div class="col-8">
+              <!--<h1>Blogs of particular category</h1>-->
+              <h1>Blogs of <%= category %></h1>
             </div>
-            <div class = "col-4">
-                <a href="/new" class="btn btn-lg" style="background-color: pink">New Article</a>
+            <% if (user) { %>
+            <div class="col-4">
+              <a
+                href="/new/<%= category %>"
+                class="btn btn-md"
+                style="background-color: pink"
+                >New Article</a
+              >
             </div>
-
-
+            <% }%>
           </div>
           <div class="image main">
             <img
@@ -89,26 +93,25 @@
               <div class="col-12">
                 <div class="row">
                   <% blogs.forEach(blog => { %>
-                    <div class="col-sm-4 text-center">
-                      <img
-                        src="/img/blog-1-720x480.jpg"
-                        class="img-fluid"
-                        alt=""
-                      />
+                  <div class="col-sm-4 text-center">
+                    <img
+                      src="/img/blog-1-720x480.jpg"
+                      class="img-fluid"
+                      alt=""
+                    />
 
-                      <h2 class="m-n">
-                        <a href="articles/<%= blog.slug %>"
-                          ><%= blog.title %></a
-                        >
+                    <h2 class="m-n">
+                      <a href="/articles/<%= blog.slug %>"><%= blog.title %></a>
+                    </h2>
 
-                      </h2>
-
-                      <p><%= user.username%> &nbsp;|&nbsp; <%= blog.createdAt.toLocaleDateString() %> <%=blog.createdAt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %></p>
-                    </div>
+                    <p>
+                      <%=blog.author%> &nbsp;|&nbsp; <%=
+                      blog.createdAt.toLocaleDateString() %>
+                      <%=blog.createdAt.toLocaleTimeString([], {hour: '2-digit',
+                      minute:'2-digit'}) %>
+                    </p>
+                  </div>
                   <% }) %>
-
-
-
                 </div>
               </div>
             </div>
