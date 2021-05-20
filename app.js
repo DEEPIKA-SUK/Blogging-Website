@@ -4,11 +4,12 @@ const app = express();
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 const passport = require("passport");
 const passportSetup = require("./config/passport-setup");
 const Article = require('./models/article')
 var socket = require("socket.io");
+
 
 // assests
 app.use(express.static("public"));

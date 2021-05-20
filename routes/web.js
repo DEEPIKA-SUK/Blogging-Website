@@ -111,6 +111,7 @@ function saveArticleAndRedirect(path) {
     article.author = req.body.author;
     try {
       article = await article.save(); // returns id for the article
+      console.log(article);
       res.redirect(`/articles/${article.slug}`);
     } catch (e) {
       res.render(`articles/${path}`, { article: article, user: req.user });
