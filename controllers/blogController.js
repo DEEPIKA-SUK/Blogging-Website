@@ -1,4 +1,5 @@
 const Article = require("./../models/article");
+
 const blogController = () => {
   // factory functions
   return {
@@ -10,6 +11,7 @@ const blogController = () => {
         user: req.user,
         blogs: blogs,
         category: req.params.slug,
+        flag: 0,
       });
     },
   };

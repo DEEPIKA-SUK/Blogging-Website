@@ -48,8 +48,9 @@
           <% } %>
           <li><a href="/" class="active">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="/blog">Blogs</a></li>
+
           <% if (user) { %>
+
           <li><a href="/profile">Profile</a></li>
           <li><a href="/fav">Favourite Blogs</a></li>
           <% } %> <% if (user) { %>
@@ -78,25 +79,13 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img
-                class="d-block w-100"
-                src="/img/slider-image-1-1920x700.jpg"
-                alt="First slide"
-              />
+              <img class="d-block w-100" src="/img/b1.jpg" alt="First slide" />
             </div>
             <div class="carousel-item">
-              <img
-                class="d-block w-100"
-                src="/img/slider-image-2-1920x700.jpg"
-                alt="Second slide"
-              />
+              <img class="d-block w-100" src="/img/b2.jpg" alt="Second slide" />
             </div>
             <div class="carousel-item">
-              <img
-                class="d-block w-100"
-                src="/img/slider-image-3-1920x700.jpg"
-                alt="Third slide"
-              />
+              <img class="d-block w-100" src="/img/b3.jpg" alt="Third slide" />
             </div>
           </div>
           <a
@@ -144,7 +133,9 @@
                         />
                         <p class="text-center">
                           <a href="/blog/sports"
-                            >Explore &nbsp;<i class="fa fa-long-arrow-right"></i
+                            >Explore Sports &nbsp;<i
+                              class="fa fa-long-arrow-right"
+                            ></i
                           ></a>
                         </p>
                       </div>
@@ -174,7 +165,9 @@
                         />
                         <p class="text-center">
                           <a href="/blog/entertaintment"
-                            >Explore &nbsp;<i class="fa fa-long-arrow-right"></i
+                            >Explore Entertaintment&nbsp;<i
+                              class="fa fa-long-arrow-right"
+                            ></i
                           ></a>
                         </p>
                       </div>
@@ -189,7 +182,9 @@
                         />
                         <p class="text-center">
                           <a href="/blog/science and technology"
-                            >Explore &nbsp;<i class="fa fa-long-arrow-right"></i
+                            >Explore Science & Tech&nbsp;<i
+                              class="fa fa-long-arrow-right"
+                            ></i
                           ></a>
                         </p>
                       </div>
@@ -204,7 +199,9 @@
                         />
                         <p class="text-center">
                           <a href="/blog/politics"
-                            >Explore &nbsp;<i class="fa fa-long-arrow-right"></i
+                            >Explore Politics&nbsp;<i
+                              class="fa fa-long-arrow-right"
+                            ></i
                           ></a>
                         </p>
                       </div>
@@ -219,7 +216,9 @@
                         />
                         <p class="text-center">
                           <a href="/blog/fashion"
-                            >Explore &nbsp;<i class="fa fa-long-arrow-right"></i
+                            >Explore Fashion&nbsp;<i
+                              class="fa fa-long-arrow-right"
+                            ></i
                           ></a>
                         </p>
                       </div>
@@ -233,7 +232,12 @@
                   data-slide="prev"
                 >
                   <span
-                    class="carousel-control-prev-icon bg-dark border border-dark rounded-circle"
+                    class="
+                      carousel-control-prev-icon
+                      bg-dark
+                      border border-dark
+                      rounded-circle
+                    "
                     aria-hidden="true"
                   ></span>
                   <span class="sr-only">Previous</span>
@@ -245,7 +249,12 @@
                   data-slide="next"
                 >
                   <span
-                    class="carousel-control-next-icon bg-dark border border-dark rounded-circle"
+                    class="
+                      carousel-control-next-icon
+                      bg-dark
+                      border border-dark
+                      rounded-circle
+                    "
                     aria-hidden="true"
                   ></span>
                   <span class="sr-only">Next</span>
@@ -265,114 +274,108 @@
                 data-ride="carousel"
               >
                 <div class="carousel-inner w-100" role="listbox">
+                  <% if (length>=1) { %>
                   <div class="carousel-item active">
                     <div class="col-md-4">
                       <div class="card card-body">
                         <img
                           class="img-fluid"
-                          src="http://placehold.it/380?text=1"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs[0].image %>"
                         />
                         <p class="text-center">
-                          <a href="/blog"
-                            >Read More &nbsp;<i
-                              class="fa fa-long-arrow-right"
-                            ></i
-                          ></a>
-                          <button>Fav</button>
+                          <a href="/articles/<%= blogs[0].slug %>"
+                            ><%= blogs[0].slug %>
+                          </a>
                         </p>
                       </div>
                     </div>
                   </div>
+                  <% } %> <% if (length>=2) { %>
                   <div class="carousel-item">
                     <div class="col-md-4">
                       <div class="card card-body">
                         <img
                           class="img-fluid"
-                          src="http://placehold.it/380?text=2"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs[1].image %>"
                         />
                         <p class="text-center">
-                          <a href="/blog"
-                            >Read More &nbsp;<i
-                              class="fa fa-long-arrow-right"
-                            ></i
-                          ></a>
-                          <button>Fav</button>
+                          <a href="/articles/<%= blogs[1].slug %>"
+                            ><%= blogs[1].slug %>
+                          </a>
                         </p>
                       </div>
                     </div>
                   </div>
+                  <% } %> <% if (length>=3) { %>
                   <div class="carousel-item">
                     <div class="col-md-4">
                       <div class="card card-body">
                         <img
                           class="img-fluid"
-                          src="http://placehold.it/380?text=3"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs[2].image %>"
                         />
                         <p class="text-center">
-                          <a href="/blog"
-                            >Read More &nbsp;<i
-                              class="fa fa-long-arrow-right"
-                            ></i
-                          ></a>
-                          <button>Fav</button>
+                          <a href="/articles/<%= blogs[2].slug %>"
+                            ><%= blogs[2].slug %>
+                          </a>
                         </p>
                       </div>
                     </div>
                   </div>
+                  <% } %> <% if (length>=4) { %>
                   <div class="carousel-item">
                     <div class="col-md-4">
                       <div class="card card-body">
                         <img
                           class="img-fluid"
-                          src="http://placehold.it/380?text=4"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs[3].image %>"
                         />
                         <p class="text-center">
-                          <a href="/blog"
-                            >Read More &nbsp;<i
-                              class="fa fa-long-arrow-right"
-                            ></i
-                          ></a>
-                          <button>Fav</button>
+                          <a href="/articles/<%= blogs[3].slug %>"
+                            ><%= blogs[3].slug %>
+                          </a>
                         </p>
                       </div>
                     </div>
                   </div>
+                  <% } %> <% if (length>=5) { %>
                   <div class="carousel-item">
                     <div class="col-md-4">
                       <div class="card card-body">
                         <img
                           class="img-fluid"
-                          src="http://placehold.it/380?text=5"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs[4].image %>"
                         />
                         <p class="text-center">
-                          <a href="/blog"
-                            >Read More &nbsp;<i
-                              class="fa fa-long-arrow-right"
-                            ></i
-                          ></a>
-                          <button>Fav</button>
+                          <a href="/articles/<%= blogs[4].slug %>"
+                            ><%= blogs[4].slug %>
+                          </a>
                         </p>
                       </div>
                     </div>
                   </div>
+                  <% } %> <% if (length>=6) { %>
                   <div class="carousel-item">
                     <div class="col-md-4">
                       <div class="card card-body">
                         <img
                           class="img-fluid"
-                          src="http://placehold.it/380?text=6"
+                          src="/uploads/<%= blogs[5].image %>"
                         />
                         <p class="text-center">
-                          <a href="/blog"
-                            >Read More &nbsp;<i
-                              class="fa fa-long-arrow-right"
-                            ></i
-                          ></a>
-                          <button>Fav</button>
+                          <a href="/articles/<%= blogs[5].slug %>"
+                            ><%= blogs[5].slug %>
+                          </a>
                         </p>
                       </div>
                     </div>
                   </div>
+                  <% } %>
                 </div>
                 <a
                   class="carousel-control-prev w-auto"
@@ -381,7 +384,12 @@
                   data-slide="prev"
                 >
                   <span
-                    class="carousel-control-prev-icon bg-dark border border-dark rounded-circle"
+                    class="
+                      carousel-control-prev-icon
+                      bg-dark
+                      border border-dark
+                      rounded-circle
+                    "
                     aria-hidden="true"
                   ></span>
                   <span class="sr-only">Previous</span>
@@ -393,7 +401,12 @@
                   data-slide="next"
                 >
                   <span
-                    class="carousel-control-next-icon bg-dark border border-dark rounded-circle"
+                    class="
+                      carousel-control-next-icon
+                      bg-dark
+                      border border-dark
+                      rounded-circle
+                    "
                     aria-hidden="true"
                   ></span>
                   <span class="sr-only">Next</span>
@@ -466,48 +479,35 @@
             </form>
           </section>
           <section>
-            <h2>Contact Info</h2>
-
-            <ul class="alt">
-              <li>
-                <span class="fa fa-envelope-o"></span>
-                <a href="#">contact@company.com</a>
-              </li>
-              <li><span class="fa fa-phone"></span> +1 333 4040 5566</li>
-              <li>
-                <span class="fa fa-map-pin"></span> 212 Barrington Court New
-                York, ABC 10001 United States of America
-              </li>
-            </ul>
-
             <h2>Follow Us</h2>
 
             <ul class="icons">
               <li>
-                <a href="#" class="icon style2 fa-twitter"
-                  ><span class="label">Twitter</span></a
+                <a
+                  href="https://github.com/DEEPALI-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepali Sukhija</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon style2 fa-facebook"
-                  ><span class="label">Facebook</span></a
+                <a
+                  href="https://github.com/DEEPIKA-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepika Sukhija</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon style2 fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon style2 fa-linkedin"
-                  ><span class="label">LinkedIn</span></a
+                <a
+                  href="https://github.com/Bhavika-Gianey"
+                  class="icon style2 fa-github"
+                  ><span class="label">Bhavika Gianey</span></a
                 >
               </li>
             </ul>
           </section>
 
           <ul class="copyright">
-            <li>Copyright © 2020 Company Name</li>
+            <li>Copyright © 2021 Blogging Website</li>
           </ul>
         </div>
       </footer>
