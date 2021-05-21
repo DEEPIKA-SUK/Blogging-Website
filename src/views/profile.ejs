@@ -67,11 +67,7 @@
           <h1>Profile</h1>
 
           <div class="image main">
-            <img
-              src="/img/banner-image-3-1920x500.jpg"
-              class="img-fluid"
-              alt=""
-            />
+            <img src="/img/img2.jpg" class="img-fluid" alt="" />
           </div>
           <div class="container-fluid">
             <div class="row">
@@ -79,17 +75,22 @@
                 <div class="row">
                   <% blogs.forEach(blog => { %>
                   <div class="col-sm-4 text-center">
-                    <img src="/img/blog-1-720x480.jpg" class="img-fluid" alt="" />
+                    <img
+                      src="/uploads/<%= blog.image %>"
+                      class="img-fluid"
+                      style="height: 350px; width: 650px"
+                      alt=""
+                    />
 
                     <h2 class="m-n">
                       <a href="/articles/<%= blog.slug %>"><%= blog.title %></a>
                     </h2>
 
                     <p>
-                      <%= blog.author %> &nbsp;|&nbsp;
-                      <%= blog.createdAt.toLocaleDateString() %>
-                      <%= blog.createdAt.toLocaleTimeString([], {hour: '2-digit',
-                        minute:'2-digit'}) %>
+                      <%= blog.author %> &nbsp;|&nbsp; <%=
+                      blog.createdAt.toLocaleDateString() %> <%=
+                      blog.createdAt.toLocaleTimeString([], {hour: '2-digit',
+                      minute:'2-digit'}) %>
                       <!-- <%= user.googleId%> -->
                     </p>
                   </div>
@@ -105,34 +106,35 @@
       <footer id="footer">
         <div class="inner">
           <section>
+            <h2>Follow Us</h2>
+
             <ul class="icons">
               <li>
-                <a href="#" class="icon style2 fa-twitter"
-                  ><span class="label">Twitter</span></a
+                <a
+                  href="https://github.com/DEEPALI-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepali Sukhija</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon style2 fa-facebook"
-                  ><span class="label">Facebook</span></a
+                <a
+                  href="https://github.com/DEEPIKA-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepika Sukhija</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon style2 fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon style2 fa-linkedin"
-                  ><span class="label">LinkedIn</span></a
+                <a
+                  href="https://github.com/Bhavika-Gianey"
+                  class="icon style2 fa-github"
+                  ><span class="label">Bhavika Gianey</span></a
                 >
               </li>
             </ul>
-
-            &nbsp;
           </section>
 
           <ul class="copyright">
-            <li>Copyright © 2020 Company Name</li>
+            <li>Copyright © 2021 Blogging Website</li>
           </ul>
         </div>
       </footer>

@@ -26,8 +26,11 @@
 </div>
 <div class="form-group">
   <label for="author">Author</label>
-  <input name="author" id="author" required type="text" readonly class="form-control"
-  value="<%= user.username %>"/ >
+  <input name="author" id="author" required type="text" readonly
+  class="form-control" value="<%= user.username %>"/ >
 </div>
-<button><a href="/">Cancel</a></button>
-<button type="submit">Save</button>
+<div class="form-group">
+  <label for="image">Choose Image</label>
+  <input name="file" id="image" required type="file" class="form-control"
+  value="<%= article.image %>"/ >
+</div>

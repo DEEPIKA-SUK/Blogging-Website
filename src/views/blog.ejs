@@ -1,147 +1,175 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Blog Website</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
 
-<head>
-  <title>Blog Website</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css" />
-  </noscript>
-  <link rel="stylesheet" href="/css/style.css" />
-</head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <div class="inner">
+          <!-- Logo -->
+          <a href="/" class="logo">
+            <span class="fa fa-pencil"></span>
+            <span class="title">Blogging</span>
+          </a>
 
-<body class="is-preload">
-  <!-- Wrapper -->
-  <div id="wrapper">
-    <!-- Header -->
-    <header id="header">
-      <div class="inner">
-        <!-- Logo -->
-        <a href="/" class="logo">
-          <span class="fa fa-pencil"></span>
-          <span class="title">Blogging</span>
-        </a>
+          <!-- Nav -->
+          <nav>
+            <ul>
+              <li><a href="#menu">Menu</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-        <!-- Nav -->
-        <nav>
-          <ul>
-            <li><a href="#menu">Menu</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Menu -->
-    <nav id="menu">
-      <h2>Menu</h2>
-      <ul>
-        <% if (user) { %>
-        <img src="<%= user.thumbnail %>" style="width: 200px; height: 200px" />
-        <p><%= user.username%></p>
-        <p><%= user.email%></p>
-        <% } %>
-        <li><a href="/" class="active">Home</a></li>
-
-        <li><a href="/about">About</a></li>
-
-        <% if (user) { %>
-        <li><a href="/profile">Profile</a></li>
-
-        <li><a href="/fav">Favourite Blogs</a></li>
-        <% } %> <% if (user) { %>
-        <li><a href="/auth/logout">Log out</a></li>
-        <% } else { %>
-        <li><a href="/auth/google">Login</a></li>
-        <% } %>
-      </ul>
-    </nav>
-
-    <!-- Main -->
-    <div id="main">
-      <div class="inner">
-        <div class="row">
-          <div class="col-8">
-            <!--<h1>Blogs of particular category</h1>-->
-            <h1> Blogs of <%= category %></h1>
-          </div>
+      <!-- Menu -->
+      <nav id="menu">
+        <h2>Menu</h2>
+        <ul>
           <% if (user) { %>
-          <div class="col-4">
-            <a href="/new/<%= category %>" class="btn btn-md" style="background-color: pink">New Article</a>
-          </div>
-          <% }%>
-        </div>
-        <div class="image main">
-          <img src="/img/banner-image-3-1920x500.jpg" class="img-fluid" alt="" />
-        </div>
+          <img
+            src="<%= user.thumbnail %>"
+            style="width: 200px; height: 200px"
+          />
+          <p><%= user.username%></p>
+          <p><%= user.email%></p>
+          <% } %>
+          <li><a href="/" class="active">Home</a></li>
 
-        <div class="container-fluid">
+          <li><a href="/about">About</a></li>
+
+          <% if (user) { %>
+          <li><a href="/profile">Profile</a></li>
+
+          <li><a href="/fav">Favourite Blogs</a></li>
+          <% } %> <% if (user) { %>
+          <li><a href="/auth/logout">Log out</a></li>
+          <% } else { %>
+          <li><a href="/auth/google">Login</a></li>
+          <% } %>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
           <div class="row">
-            <div class="col-12">
-              <div class="row">
-                <% blogs.forEach(blog => { %>
-                <div class="col-sm-4 text-center">
-                  <img src="/img/blog-1-720x480.jpg" class="img-fluid" alt="" />
+            <div class="col-8">
+              <!--<h1>Blogs of particular category</h1>-->
+              <h1>Blogs of <%= category %></h1>
+            </div>
+            <% if (user) { %>
+            <div class="col-4">
+              <a
+                href="/new/<%= category %>"
+                class="btn btn-md"
+                style="background-color: pink"
+                >New Article</a
+              >
+            </div>
+            <% }%>
+          </div>
+          <div class="image main">
+            <img src="/img/img2.jpg" class="img-fluid" alt="" />
+          </div>
 
-                  <h2 class="m-n">
-                    <a href="/articles/<%= blog.slug %>"><%= blog.title %></a>
-                  </h2>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <% blogs.forEach(blog => { %>
+                  <div class="col-sm-4 text-center">
+                    <img
+                      src="/uploads/<%= blog.image %>"
+                      class="img-fluid"
+                      style="height: 350px; width: 650px"
+                      alt=""
+                    />
 
-                  <p>
-                    <%= blog.author %> &nbsp;|&nbsp;
-                    <%= blog.createdAt.toLocaleDateString() %>
-                    <%= blog.createdAt.toLocaleTimeString([], {hour: '2-digit',
+                    <h2 class="m-n">
+                      <a href="/articles/<%= blog.slug %>"><%= blog.title %></a>
+                      <% if (user) {%> &nbsp;<a
+                        href="/fav/<%= blog.slug %>"
+                        class="icon style2 fa-heart"
+                      ></a>
+                      <% } %>
+                    </h2>
+
+                    <p>
+                      <%= blog.author %> &nbsp;|&nbsp; <%=
+                      blog.createdAt.toLocaleDateString() %> <%=
+                      blog.createdAt.toLocaleTimeString([], {hour: '2-digit',
                       minute:'2-digit'}) %>
-                    <!-- <%= user.googleId%> -->
-                  </p>
+                    </p>
+                  </div>
+                  <% }) %>
                 </div>
-                <% }) %>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Footer -->
-    <footer id="footer">
-      <div class="inner">
-        <section>
-          <ul class="icons">
-            <li>
-              <a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a>
-            </li>
-            <li>
-              <a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a>
-            </li>
-            <li>
-              <a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a>
-            </li>
-            <li>
-              <a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a>
-            </li>
+      <!-- Footer -->
+
+      <footer id="footer">
+        <div class="inner">
+          <section>
+            <h2>Follow Us</h2>
+
+            <ul class="icons">
+              <li>
+                <a
+                  href="https://github.com/DEEPALI-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepali Sukhija</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/DEEPIKA-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepika Sukhija</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Bhavika-Gianey"
+                  class="icon style2 fa-github"
+                  ><span class="label">Bhavika Gianey</span></a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <ul class="copyright">
+            <li>Copyright © 2021 Blogging Website</li>
           </ul>
-
-          &nbsp;
-        </section>
-
-        <ul class="copyright">
-          <li>Copyright © 2020 Company Name</li>
-        </ul>
-      </div>
-    </footer>
-  </div>
-  <a href="#" class="to-top" style="text-decoration: none; color: white">
-    <i class="fa fa-angle-up"></i>
-  </a>
-  <!-- Scripts -->
-  <script src="/js/jquery.min.js"></script>
-  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/jquery.scrolly.min.js"></script>
-  <script src="/js/jquery.scrollex.min.js"></script>
-  <script src="/js/main.js"></script>
-</body>
-
+        </div>
+      </footer>
+    </div>
+    <a href="#" class="to-top" style="text-decoration: none; color: white">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
 </html>

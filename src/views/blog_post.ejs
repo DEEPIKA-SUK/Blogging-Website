@@ -75,14 +75,15 @@
           </div>
           <div class="image main">
             <img
-              src="/img/blog-fullscreen-1-1920x700.jpg"
+              src="/uploads/<%= article.image %>"
               class="img-fluid"
               alt=""
             />
           </div>
 
-          <p><%- article.sanitizedHtml %></p>
-          <% if (user) { %>
+          <p><strong>Markdown: </strong><%- article.sanitizedHtml %></p>
+          <p><strong>Description: </strong><p><%- article.description %></p></p>
+          <% if (user && user.username==article.author) { %>
           <a
             href="/edit/<%= article.id  %>"
             class="btn btn-lg"
@@ -102,40 +103,43 @@
       </div>
 
       <!-- Footer -->
+
       <footer id="footer">
         <div class="inner">
           <section>
-            <h2>Share This</h2>
+            <h2>Follow Us</h2>
 
             <ul class="icons">
               <li>
-                <a href="#" class="icon style2 fa-twitter"
-                  ><span class="label">Twitter</span></a
+                <a
+                  href="https://github.com/DEEPALI-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepali Sukhija</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon style2 fa-facebook"
-                  ><span class="label">Facebook</span></a
+                <a
+                  href="https://github.com/DEEPIKA-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepika Sukhija</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon style2 fa-linkedin"
-                  ><span class="label">LinkedIn</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon style2 fa-behance"
-                  ><span class="label">Behance</span></a
+                <a
+                  href="https://github.com/Bhavika-Gianey"
+                  class="icon style2 fa-github"
+                  ><span class="label">Bhavika Gianey</span></a
                 >
               </li>
             </ul>
           </section>
 
           <ul class="copyright">
-            <li>Copyright © 2020 Company Name</li>
+            <li>Copyright © 2021 Blogging Website</li>
           </ul>
         </div>
       </footer>
+    
     </div>
     <a href="#" class="to-top" style="text-decoration: none; color: white">
       <i class="fa fa-angle-up"></i>

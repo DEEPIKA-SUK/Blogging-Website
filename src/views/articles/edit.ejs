@@ -70,8 +70,14 @@
       <div class="container">
         <h1 class="mb-4">Edit Article</h1>
 
-        <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
+        <form
+          enctype="multipart/form-data"
+          action="/articles/<%= article.id %>?_method=PUT"
+          method="POST"
+        >
           <%- include('_form_fields') %>
+          <button><a href="/articles/<%= article.slug  %>">Cancel</a></button>
+          <button type="submit">Save</button>
         </form>
       </div>
 
@@ -79,34 +85,35 @@
       <footer id="footer">
         <div class="inner">
           <section>
+            <h2>Follow Us</h2>
+
             <ul class="icons">
               <li>
-                <a href="#" class="icon style2 fa-twitter"
-                  ><span class="label">Twitter</span></a
+                <a
+                  href="https://github.com/DEEPALI-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepali Sukhija</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon style2 fa-facebook"
-                  ><span class="label">Facebook</span></a
+                <a
+                  href="https://github.com/DEEPIKA-SUK"
+                  class="icon style2 fa-github"
+                  ><span class="label">Deepika Sukhija</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon style2 fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon style2 fa-linkedin"
-                  ><span class="label">LinkedIn</span></a
+                <a
+                  href="https://github.com/Bhavika-Gianey"
+                  class="icon style2 fa-github"
+                  ><span class="label">Bhavika Gianey</span></a
                 >
               </li>
             </ul>
-
-            &nbsp;
           </section>
 
           <ul class="copyright">
-            <li>Copyright © 2020 Company Name</li>
+            <li>Copyright © 2021 Blogging Website</li>
           </ul>
         </div>
       </footer>

@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 const keys = require("../config/keys");
 const Message = require("../models/message-model");
+const Article = require("./../models/article");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -14,7 +15,16 @@ const homeController = () => {
   // factory functions
   return {
     index: async (req, res) => {
-      return res.render("home", { user: req.user });
+      const blogs = await Article.find().sort({
+        createdAt: "desc",
+      });
+
+      return res.render("home", {
+        user: req.user,
+        blogs: blogs,
+        category: req.params.slug,
+        length: blogs.length,
+      });
     },
     about: async (req, res) => {
       return res.render("about", { user: req.user });

@@ -9,6 +9,8 @@ const authController = require("../controllers/authController");
 const authCheck = require("../middlewares/authCheck");
 const botController = require("../controllers/botController");
 const Article = require("./../models/article");
+var myModule = require("./../middlewares/upload");
+var upload = myModule.upload;
 
 const initRoutes = (app) => {
   // routes
@@ -33,7 +35,9 @@ const initRoutes = (app) => {
   );
 
   //favourite list
-  app.get("/fav", favController().fav);
+  app.get("/fav/:slug", favController().fav);
+  app.get("/fav", favController().favdisplay);
+  app.get("/favdel/:slug", favController().del);
 
   //particular category blog
   app.get("/blog/:slug", blogController().blog);
@@ -68,6 +72,7 @@ const initRoutes = (app) => {
 
   app.post(
     "/articles",
+    upload,
     async (req, res, next) => {
       req.article = new Article();
       next();
@@ -78,6 +83,7 @@ const initRoutes = (app) => {
   //edit articles
   app.get("/edit/:id", async (req, res) => {
     const article = await Article.findById(req.params.id);
+    console.log(article);
     res.render("articles/edit", {
       article: article,
       category: article.category,
@@ -87,6 +93,7 @@ const initRoutes = (app) => {
 
   app.put(
     "/articles/:id",
+    upload,
     async (req, res, next) => {
       req.article = await Article.findById(req.params.id);
       next();
@@ -109,6 +116,8 @@ function saveArticleAndRedirect(path) {
     article.markdown = req.body.markdown;
     article.category = req.body.category;
     article.author = req.body.author;
+    article.image = req.file.filename;
+    console.log(req.file.filename);
     try {
       article = await article.save(); // returns id for the article
       console.log(article);
