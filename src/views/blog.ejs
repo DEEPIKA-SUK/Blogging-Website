@@ -107,7 +107,7 @@
                         class="icon style2 fa-heart"
                       ></a>
                       <% } %>
-                      <% if (user.username != blog.author) {%> &nbsp;<a
+                      <% if (user && user.username != blog.author) {%> &nbsp;<a
                         href="/like/<%= blog.slug %>"
                         class="icon style2 fa-thumbs-up"
                       ></a>
