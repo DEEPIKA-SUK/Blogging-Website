@@ -21,6 +21,7 @@ const favController = () => {
         title: blogs.title,
         description: blogs.description,
         markdown: blogs.markdown,
+        likes: blogs.likes,
         category: blogs.category,
         author: blogs.author,
         slug: blogs.slug,
@@ -66,6 +67,24 @@ const favController = () => {
         blogs: blogs,
         category: req.params.slug,
       });
+    },
+    like: async (req, res) => {
+      const blogs = await Article.findOne({ slug: req.params.slug }).sort({
+        createdAt: "desc",
+      });
+      var likes = blogs.likes +1;
+      Article
+        .updateOne(
+           { slug: req.params.slug },
+           { $set: { "likes": likes }}
+        ).then(() => {
+          res.redirect(`/blog/${blogs.category}`);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.render(`home`, { user: req.user });
+        });
+    
     },
   };
 };

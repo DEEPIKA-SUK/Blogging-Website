@@ -38,6 +38,7 @@ const initRoutes = (app) => {
   app.get("/fav/:slug", favController().fav);
   app.get("/fav", favController().favdisplay);
   app.get("/favdel/:slug", favController().del);
+  app.get("/like/:slug", favController().like);
 
   //particular category blog
   app.get("/blog/:slug", blogController().blog);

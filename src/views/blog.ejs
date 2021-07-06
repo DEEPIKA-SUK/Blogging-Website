@@ -107,8 +107,14 @@
                         class="icon style2 fa-heart"
                       ></a>
                       <% } %>
+                      <% if (user.username != blog.author) {%> &nbsp;<a
+                        href="/like/<%= blog.slug %>"
+                        class="icon style2 fa-thumbs-up"
+                      ></a>
+                      <% } %>
+                      
                     </h2>
-
+                  <h2 class="m-n">Likes: <%= blog.likes %></h2>
                     <p>
                       <%= blog.author %> &nbsp;|&nbsp; <%=
                       blog.createdAt.toLocaleDateString() %> <%=
