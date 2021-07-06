@@ -18,12 +18,17 @@ const homeController = () => {
       const blogs = await Article.find().sort({
         createdAt: "desc",
       });
-
+      const blogs1 = await Article.find().sort({
+        likes: "desc",
+      });
+      
       return res.render("home", {
         user: req.user,
         blogs: blogs,
+        blogs1: blogs1,
         category: req.params.slug,
         length: blogs.length,
+        length1: blogs1.length,
       });
     },
     about: async (req, res) => {

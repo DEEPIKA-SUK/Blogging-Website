@@ -70,11 +70,27 @@
       <div id="main">
         <div class="inner">
           <h1><%= article.title %></h1>
+          <% if (user) {%>
+          <h2 class="m-n">
+                      
+                       &nbsp;<a
+                        href="/fav/<%= article.slug %>"
+                        class="icon style2 fa-heart"
+                      ></a>
+                      <% if (user.username != article.author) {%>
+                      &nbsp;<a
+                        href="/like/<%= article.slug %>"
+                        class="icon style2 fa-thumbs-up"
+                      ></a>
+                      <% } %>
+                      
+                    </h2>
+                    <% } %>
           <div class="text-muted mb-2">
             <%= article.author %> <%= article.createdAt.toLocaleDateString() %>
           </div>
           <div class="image main">
-            <img
+            <img style="width: 1920px; height: 500px;"
               src="/uploads/<%= article.image %>"
               class="img-fluid"
               alt=""
@@ -83,6 +99,7 @@
 
           <p><strong>Markdown: </strong><%- article.sanitizedHtml %></p>
           <p><strong>Description: </strong><p><%- article.description %></p></p>
+          <p><strong>Likes: </strong><p><%- article.likes %></p></p>
           <% if (user && user.username==article.author) { %>
           <a
             href="/edit/<%= article.id  %>"

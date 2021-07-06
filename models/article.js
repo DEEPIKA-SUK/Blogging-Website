@@ -13,6 +13,10 @@ const articleSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  likes: {
+    type: Number,
+    default: 0,
+  },
   markdown: {
     type: String,
     required: true,

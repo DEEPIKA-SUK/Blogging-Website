@@ -17,6 +17,9 @@ const favblogSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  likes: {
+    type: Number,
+  },
   markdown: {
     type: String,
     required: true,

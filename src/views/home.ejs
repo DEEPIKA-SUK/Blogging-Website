@@ -414,8 +414,160 @@
               </div>
             </div>
           </div>
+
+          <!---------------Top LIked blogs-------------------------------------------------------------->
+          <div class="container text-center my-3">
+            <h1>Top Liked Blogs</h1>
+            <div class="row mx-auto my-auto">
+              <div
+                id="Carousel1"
+                class="carousel slide w-100"
+                data-ride="carousel"
+              >
+                <div class="carousel-inner w-100" role="listbox">
+                  <% if (length1>=1) { %>
+                  <div class="carousel-item active">
+                    <div class="col-md-4">
+                      <div class="card card-body">
+                        <img
+                          class="img-fluid"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs1[0].image %>"
+                        />
+                        <p class="text-center">
+                          <a href="/articles/<%= blogs1[0].slug %>"
+                            ><%= blogs1[0].slug %>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %> <% if (length>=2) { %>
+                  <div class="carousel-item">
+                    <div class="col-md-4">
+                      <div class="card card-body">
+                        <img
+                          class="img-fluid"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs1[1].image %>"
+                        />
+                        <p class="text-center">
+                          <a href="/articles/<%= blogs1[1].slug %>"
+                            ><%= blogs1[1].slug %>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %> <% if (length>=3) { %>
+                  <div class="carousel-item">
+                    <div class="col-md-4">
+                      <div class="card card-body">
+                        <img
+                          class="img-fluid"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs1[2].image %>"
+                        />
+                        <p class="text-center">
+                          <a href="/articles/<%= blogs1[2].slug %>"
+                            ><%= blogs1[2].slug %>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %> <% if (length>=4) { %>
+                  <div class="carousel-item">
+                    <div class="col-md-4">
+                      <div class="card card-body">
+                        <img
+                          class="img-fluid"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs1[3].image %>"
+                        />
+                        <p class="text-center">
+                          <a href="/articles/<%= blogs1[3].slug %>"
+                            ><%= blogs1[3].slug %>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %> <% if (length>=5) { %>
+                  <div class="carousel-item">
+                    <div class="col-md-4">
+                      <div class="card card-body">
+                        <img
+                          class="img-fluid"
+                          style="height: 350px; width: 650px"
+                          src="/uploads/<%= blogs1[4].image %>"
+                        />
+                        <p class="text-center">
+                          <a href="/articles/<%= blogs1[4].slug %>"
+                            ><%= blogs1[4].slug %>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %> <% if (length>=6) { %>
+                  <div class="carousel-item">
+                    <div class="col-md-4">
+                      <div class="card card-body">
+                        <img
+                          class="img-fluid"
+                          src="/uploads/<%= blogs1[5].image %>"
+                        />
+                        <p class="text-center">
+                          <a href="/articles/<%= blogs1[5].slug %>"
+                            ><%= blogs1[5].slug %>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %>
+                </div>
+                <a
+                  class="carousel-control-prev w-auto"
+                  href="#Carousel1"
+                  role="button"
+                  data-slide="prev"
+                >
+                  <span
+                    class="
+                      carousel-control-prev-icon
+                      bg-dark
+                      border border-dark
+                      rounded-circle
+                    "
+                    aria-hidden="true"
+                  ></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a
+                  class="carousel-control-next w-auto"
+                  href="#Carousel1"
+                  role="button"
+                  data-slide="next"
+                >
+                  <span
+                    class="
+                      carousel-control-next-icon
+                      bg-dark
+                      border border-dark
+                      rounded-circle
+                    "
+                    aria-hidden="true"
+                  ></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
           <br />
           <br />
+
           <header id="inner">
             <h1>Group chat</h1>
             <div>
